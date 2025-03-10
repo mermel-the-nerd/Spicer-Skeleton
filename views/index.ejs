@@ -7,17 +7,10 @@
     </head>
 
     <body>
-        <h1>Examples</h1>
-        <ul>
-        <!-- examples coming from controller -->
-         
-        </ul>
-        <form action="/" method="POST">
-            <!-- post sending to backend, backend putting it in examples, getting passed back to frontend -->
-            <input type="text" name="name" placeholder="Add Example" required>
-            <input type="text" name="descriptor" placeholder="Description">
-            <button type="submit">Submit</button>
-        </form>
+        <form action="/submitform" method="POST">
+        <textarea name="notes" id="" cols="30" rows="10"></textarea>
+        <button type="submit">Submit</button>
+    </form>
     </body>
     
 </html>
