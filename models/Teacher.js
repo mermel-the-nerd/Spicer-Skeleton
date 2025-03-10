@@ -9,14 +9,23 @@ const teacherSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    classes: [{ 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: "Class", } ],
+    classes: [ {
+        name: {
+        type: String,
+        required: true,
+    },    
+        block: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Block",
+            required: true,
+    },
+        location: {
+            type: String,
+            required: true,
+        }
+    } ],
 
-    avaliableBlocks: [{ 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: "Block", } ],
-    
+        
 });
 
 const Teacher = mongoose.model('Teacher', teacherSchema);
