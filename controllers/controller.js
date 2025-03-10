@@ -3,26 +3,18 @@ import Class from '../models/Class.js';
 import Block from '../models/Block.js';
 
 
-const teacherss = [
-    "Harrison, William",
-    "Hatchman, Laura",
-    "Greenstone, Willa",
-    "Skophammer, Ryan",
-    "Kelley, Melissa",
-    "Mukai, Emily",
-    "Duncan, Max",
-    "Rogers, Autumn",
-    "Perahya, Dan"
-  ];
 
+export const home= (req, res) => {
+  res.render("index");
+};
 
-export const getExamples = async (req, res) => {
-    try {
-        const teacherObjects = await Teacher.insertMany(teacherss.map(advisee => ({name: advisee})));
-        res.render('index');//loads the page: index, passing examples
-    } catch (err) {
-        res.status(500).send('Server Error');
-    }
+export const loadDataPage = async (req, res) => {
+  try {
+    const data = req.body.notes
+      res.render('data', {data});//loads the page: index, passing examples
+  } catch (err) {
+      res.status(500).send('Server Error');
+  }
 };
 
 export const populateTeachers = async (req, res) => {
