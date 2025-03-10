@@ -1,16 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Example App</title>
-    </head>
-
-    <body>
-        <form action="/submitform" method="POST">
-        <textarea name="notes" id="" cols="30" rows="10"></textarea>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>substitue page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Substitute Form</h1>
+    <!--title is a wip-->
+    <form action="/submitform" method="POST">
+        <div class="dropsearch">
+            <input type="text" id="search" onkeyup="searchTeachers()" placeholder="NAME...">
+            <ul id="results" class="dropdown"></ul>
+        </div>
+        <br>
+        <!-- how to add calendar, blocks?? -->
+        <div class="notes">
+            <p>Notes for Substitute</p>
+            <textarea name="notes" id="" cols="30" rows="10"></textarea>
+        </div>
+        <br>
+        <div class="students">
+            <table id="studentnames">
+                <tr>
+                <th></th>
+                <th>Name</th>
+                </tr>
+                <tr>
+                <td>Student #1</td>
+                <td>Student Name</td>
+                </tr>
+                <tr>
+                <td>Student #2 </td>
+                <td>Student Name</td>
+                </tr>
+            </table>
+            <!--NEEDS LOTS OF WORK ^^^^ HOW DO I MAK E IT PRETTY & ALSO GENERATE FOR ENOUGH STUDENTS-->
+            <!--a for-each???? or smn-->
+            <!--follow w3schoolsthing on cssing-->
+            <input type="checkbox" id="findstudents" name="findstudents">
+            <label for="findstudents">Find students for me</label>
+        </div>
+        <br>
         <button type="submit">Submit</button>
     </form>
-    </body>
-    
+</body>
 </html>
