@@ -19,8 +19,9 @@ export const loadDataPage = async (req, res) => {
 
 export const populateTeachers = async (req, res) => {
     try {
+        //Course,TEACHER: Email 1,Class ID,Description,Teacher,Block,Grading Periods,Room
       const result = [] 
-      const filePath = path.join("./public", 'teachers.csv');
+      const filePath = path.join("./data", 'data/US Classes (272 records) 2025-03-10.csv'); 
       fs.readFile(filePath, 'utf8', async (err, data) => {
         if (err) {
           res.send("Failed to read the file: \n" + err);
@@ -28,9 +29,15 @@ export const populateTeachers = async (req, res) => {
         }
         const lines = data.split('\n')
         const headers = lines[0].split(",") //in case you want to make it more efficient
+				
+				
+
         for  (let i = 1; i < lines.length; i++) {
-          const classes = lines[i].split('"')[1].split(",")
-          const nameEmail = lines[i].split(',', 2)
+        //   const classes = lines[i].split('"')[1].split(",")
+				// if teacher exists then add to the array 
+				// { name, email, classes: [{name, block, location}]  }
+					
+          const nameEmail = lines[i].split(',')
   
   
           const teacher = new Teacher({ name: nameEmail[0], email:  nameEmail[1], classes: classes})

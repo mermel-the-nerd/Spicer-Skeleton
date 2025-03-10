@@ -55,8 +55,8 @@ US Advisory,SKeller@westridge.org,1206,Keller Advisory,"Keller, Shannon",US Asse
 US Advisory,dprince@westridge.org,1207,Prince Advisory,"Prince, David",US Assembies,ALL,PAC Lobby
 US Advisory,Tstevenson@westridge.org,1208,Stevenson Advisory,"Stevenson, Tarra",US Assembies,ALL,PAC Lobby
 US Advisory,nguzman@westridge.org,1209,Guzman Advisory,"Guzman, Nalei",US Assembies,ALL,Swan Choral Hall
-Creative Writing I - Semester 1,cseiberling@westridge.org,160.01,Creative Writing I - Semester 1,"Seiberling, Courtney",US H6 Block,ALL,Sci Bldg - 85 
-Creative Writing I - Semester 2,cseiberling@westridge.org,161.01,Creative Writing I - Semester 2,"Seiberling, Courtney",US H6 Block,US S2,Sci Bldg - 85 
+Creative Writing I - Semester 1,cseiberling@westridge.org,160.01,Creative Writing I - Semester 1,"Seiberling, Courtney",US H6 Block,ALL,Sci Bldg - 85
+Creative Writing I - Semester 2,cseiberling@westridge.org,161.01,Creative Writing I - Semester 2,"Seiberling, Courtney",US H6 Block,US S2,Sci Bldg - 85
 Creative Writing II - Semester 1,cseiberling@westridge.org,162.01,Creative Writing II - Semester 1,"Seiberling, Courtney",US H4 Block,US S1,Main Building 27
 Creative Writing II - Semester 2,cseiberling@westridge.org,163.01,Creative Writing II - Semester 2,"Seiberling, Courtney",US H4 Block,US S2,Main Building 27
 Creative Writing IV - Semester 1,cseiberling@westridge.org,166.01,Creative Writing IV - Semester 1,"Seiberling, Courtney",US H4 Block,US S1,Main Building 27
@@ -111,32 +111,32 @@ AP Calculus [BC],ldahl@westridge.org,351.01,AP Calculus [BC],"Dahl, Leah",US G B
 AP Calculus [BC],ldahl@westridge.org,351.02,AP Calculus [BC],"Dahl, Leah",US A Block,ALL,RHB 40
 Advanced Statistics,EChang@westridge.org,354.01,Advanced Statistics,"Chang, Elliott",US A Block,ALL,Sci Bldg - 76
 Economics,ldahl@westridge.org,359.01,Economics,"Dahl, Leah",US F Block,ALL,Main Building 11
-Chemistry I,MAmos@westridge.org,417.06,Chemistry I,"Amos, Michelle",US B Block,ALL,Sci Bldg - 82 
-Chemistry I,MAmos@westridge.org,417.07,Chemistry I,"Amos, Michelle",US D Block,ALL,Sci Bldg - 82 
-Honors Chemistry I,eudell@westridge.org,430.04,Honors Chemistry I,"Udell, Edye",US G Block,ALL,Sci Bldg - 84 
-Honors Chemistry I,eudell@westridge.org,430.05,Honors Chemistry I,"Udell, Edye",US A Block,ALL,Sci Bldg - 84 
-Honors Chemistry I,eudell@westridge.org,430.06,Honors Chemistry I,"Udell, Edye",US F Block,ALL,Sci Bldg - 84 
-Biology I,lhatchman@westridge.org,433.07,Biology I,"Hatchman, Laura",US C Block,ALL,Sci Bldg - 72 
-Biology I,lhatchman@westridge.org,433.08,Biology I,"Hatchman, Laura",US B Block,ALL,Sci Bldg - 72 
-Biology I,rdhillon@westridge.org,433.09,Biology I,"Dhillon, Rekha",US D Block,ALL,Sci Bldg - 72 
-Biology I,rdhillon@westridge.org,433.10,Biology I ,"Dhillon, Rekha",US A Block,ALL,Sci Bldg - 72 
-Biology I,rdhillon@westridge.org,433.11,Biology I,"Dhillon, Rekha",US G Block,ALL,Sci Bldg - 72 
-Biology I,rdhillon@westridge.org,433.12,Biology I,"Dhillon, Rekha",US E Block,ALL,Sci Bldg - 72 
-Advanced Chemistry II,eudell@westridge.org,434.01,Advanced Chemistry II,"Udell, Edye",US E Block,ALL,Sci Bldg - 84 
-Advanced Chemistry II,eudell@westridge.org,434.02,Advanced Chemistry II,"Udell, Edye",US D Block,ALL,Sci Bldg - 84 
+Chemistry I,MAmos@westridge.org,417.06,Chemistry I,"Amos, Michelle",US B Block,ALL,Sci Bldg - 82
+Chemistry I,MAmos@westridge.org,417.07,Chemistry I,"Amos, Michelle",US D Block,ALL,Sci Bldg - 82
+Honors Chemistry I,eudell@westridge.org,430.04,Honors Chemistry I,"Udell, Edye",US G Block,ALL,Sci Bldg - 84
+Honors Chemistry I,eudell@westridge.org,430.05,Honors Chemistry I,"Udell, Edye",US A Block,ALL,Sci Bldg - 84
+Honors Chemistry I,eudell@westridge.org,430.06,Honors Chemistry I,"Udell, Edye",US F Block,ALL,Sci Bldg - 84
+Biology I,lhatchman@westridge.org,433.07,Biology I,"Hatchman, Laura",US C Block,ALL,Sci Bldg - 72
+Biology I,lhatchman@westridge.org,433.08,Biology I,"Hatchman, Laura",US B Block,ALL,Sci Bldg - 72
+Biology I,rdhillon@westridge.org,433.09,Biology I,"Dhillon, Rekha",US D Block,ALL,Sci Bldg - 72
+Biology I,rdhillon@westridge.org,433.10,Biology I,"Dhillon, Rekha",US A Block,ALL,Sci Bldg - 72
+Biology I,rdhillon@westridge.org,433.11,Biology I,"Dhillon, Rekha",US G Block,ALL,Sci Bldg - 72
+Biology I,rdhillon@westridge.org,433.12,Biology I,"Dhillon, Rekha",US E Block,ALL,Sci Bldg - 72
+Advanced Chemistry II,eudell@westridge.org,434.01,Advanced Chemistry II,"Udell, Edye",US E Block,ALL,Sci Bldg - 84
+Advanced Chemistry II,eudell@westridge.org,434.02,Advanced Chemistry II,"Udell, Edye",US D Block,ALL,Sci Bldg - 84
 Advanced Biology II,rskophammer@westridge.org,436.01,Advanced Biology II,"Skophammer, Ryan",US C Block,ALL,Sci Bldg - 74
 Advanced Biology II,rskophammer@westridge.org,436.02,Advanced Biology II,"Skophammer, Ryan",US F Block,ALL,Sci Bldg - 74
-Advanced Physics I,aeichelberger@westridge.org,437.01,Advanced Physics I,"Eichelberger, Aaron",US F Block,ALL,Sci Bldg - 85 
-Advanced Physics I,aeichelberger@westridge.org,437.02,Advanced Physics I,"Eichelberger, Aaron",US B Block,ALL,Sci Bldg - 85 
-Advanced Physics I,aeichelberger@westridge.org,437.03,Advanced Physics I,"Eichelberger, Aaron",US E Block,ALL,Sci Bldg - 85 
-Advanced Physics II,aeichelberger@westridge.org,438.01,Advanced Physics II,"Eichelberger, Aaron",US A Block,ALL,Sci Bldg - 85 
-Physics,dperahya@westridge.org,440.01,Physics,"Perahya, Dan",US G Block,ALL,Sci Bldg - 85 
-Anatomy & Physiology,lhatchman@westridge.org,445.01,Anatomy & Physiology,"Hatchman, Laura",US F Block,ALL,Sci Bldg - 72 
+Advanced Physics I,aeichelberger@westridge.org,437.01,Advanced Physics I,"Eichelberger, Aaron",US F Block,ALL,Sci Bldg - 85
+Advanced Physics I,aeichelberger@westridge.org,437.02,Advanced Physics I,"Eichelberger, Aaron",US B Block,ALL,Sci Bldg - 85
+Advanced Physics I,aeichelberger@westridge.org,437.03,Advanced Physics I,"Eichelberger, Aaron",US E Block,ALL,Sci Bldg - 85
+Advanced Physics II,aeichelberger@westridge.org,438.01,Advanced Physics II,"Eichelberger, Aaron",US A Block,ALL,Sci Bldg - 85
+Physics,dperahya@westridge.org,440.01,Physics,"Perahya, Dan",US G Block,ALL,Sci Bldg - 85
+Anatomy & Physiology,lhatchman@westridge.org,445.01,Anatomy & Physiology,"Hatchman, Laura",US F Block,ALL,Sci Bldg - 72
 Anatomy & Physiology,lhatchman@westridge.org,445.02,Anatomy & Physiology,"Hatchman, Laura",US A Block,ALL,Sci Bldg - 74
 Research in Science,rskophammer@westridge.org,447.01,Research in Science,"Skophammer, Ryan",US D Block,ALL,Sci Bldg - 74
 Research in Science,rskophammer@westridge.org,447.02,Research in Science,"Skophammer, Ryan",US G Block,ALL,Sci Bldg - 74
- Environmental Science and Sustainability,MAmos@westridge.org,459.01, Environmental Science and Sustainability,"Amos, Michelle",US F Block,ALL,Sci Bldg - 82 
- Environmental Science and Sustainability,MAmos@westridge.org,459.02, Environmental Science and Sustainability,"Amos, Michelle",US C Block,ALL,Sci Bldg - 82 
+Environmental Science and Sustainability,MAmos@westridge.org,459.01,Environmental Science and Sustainability,"Amos, Michelle",US F Block,ALL,Sci Bldg - 82
+Environmental Science and Sustainability,MAmos@westridge.org,459.02,Environmental Science and Sustainability,"Amos, Michelle",US C Block,ALL,Sci Bldg - 82
 Latin I,dpintabone@westridge.org,537.01,Latin I,"Pintabone, Diane",US B Block,ALL,Main Building 24
 Latin II,dpintabone@westridge.org,550.01,Latin II,"Pintabone, Diane",US D Block,ALL,Main Building 24
 Latin IV Vergil: From Olympus to the Underworld,hmalspeis@westridge.org,551.01,Latin IV Vergil: From Olympus to the Underworld,"Malspeis, Hilary",US E Block,ALL,RHB 65
@@ -171,7 +171,7 @@ Time-Based Art,ARogers@westridge.org,636.01,Time-Based Art,"Rogers, Autumn",US F
 Journeys in Film,ldeyer@westridge.org,640.01,Journeys in Film,"Deyer, Lorri",US F Block,ALL,Karsh
 Ceramics I,RShneior@westridge.org,646.01,Ceramics I,"Shneior, Roni",US F Block,ALL,Ceramics
 Ceramics I,RShneior@westridge.org,646.02,Ceramics I,"Shneior, Roni",US G Block,ALL,Ceramics
-Clay Design & Engineering I,ldeyer@westridge.org,651.01, Clay Design & Engineering I,"Deyer, Lorri",US E Block,ALL,Ceramics
+Clay Design & Engineering I,ldeyer@westridge.org,651.01,Clay Design & Engineering I,"Deyer, Lorri",US E Block,ALL,Ceramics
 Clay Design & Engineering I,ldeyer@westridge.org,651.02,Clay Design & Engineering I,"Deyer, Lorri",US A Block,ALL,Ceramics
 Clay Design & Engineering II,ldeyer@westridge.org,652.01,Clay Design & Engineering II,"Deyer, Lorri",US D Block,ALL,Ceramics
 Technical Theatre,rsiminoski@westridge.org,659.01,Technical Theatre,"Siminoski, Rob",US H6 Block,ALL,Performing Art Center
@@ -196,30 +196,6 @@ Physical Education - Spring,jwong@westridge.org,710-C.02,Physical Education - Sp
 Physical Education - Fall AM,jwong@westridge.org,710-FAM,Physical Education - Fall AM,"Wong, Jenna",US Morning PE,US S1,Smud
 Physical Education - Spring AM,jwong@westridge.org,710-SAM,Physical Education - Spring AM,"Wong, Jenna",US Morning PE,US S2,Smud
 Physical Education - Winter AM,jwong@westridge.org,710-WAM,Physical Education - Winter AM,"Wong, Jenna",US Morning PE,ALL,Smud
-Varsity Tennis,mhorn@westridge.org,712.01,Tennis - Varsity,"Horn, Melanie",US Athletics,ALL,<None Specified>
-JV Tennis,mhorn@westridge.org,713.01,Tennis - JV,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Varsity Volleyball,mhorn@westridge.org,714.01,Volleyball - Varsity,"Horn, Melanie",US Athletics,ALL,GYM
-JV Volleyball,mhorn@westridge.org,715.01,Volleyball - JV,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Varsity Basketball,mhorn@westridge.org,716.01,Basketball - Varsity,"Horn, Melanie",US Athletics,ALL,GYM
-JV Basketball,mhorn@westridge.org,717.01,Basketball - JV,"Horn, Melanie",US Athletics,ALL,GYM
-Varsity Soccer,mhorn@westridge.org,718.01,Soccer - Varsity,"Horn, Melanie",US Athletics,ALL,<None Specified>
-JV Soccer,mhorn@westridge.org,719.01,Soccer - JV,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Varsity Swimming,mhorn@westridge.org,720.01,Swim - Varsity,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Varsity Softball,mhorn@westridge.org,721.01,Softball - Varsity,"Horn, Melanie",US Athletics,ALL,<None Specified>
-JV Swimming,mhorn@westridge.org,723.01,Swim - JV,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Varsity Lacrosse,mhorn@westridge.org,724.01,Lacrosse - Varsity,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Track & Field Varsity,mhorn@westridge.org,725.01,Track - Varsity,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Track & Field JV,mhorn@westridge.org,726.01,Track - JV,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Dance II,kblake@westridge.org,727.01,Dance 2,"Blake, Kashmir",US E Block,ALL,Dance Studio
-Varsity Golf,mhorn@westridge.org,730.01,Golf - Varsity,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Dance III,kblake@westridge.org,732.01,Dance 3,"Blake, Kashmir",US A Block,ALL,Dance Studio
-Varsity Water Polo,mhorn@westridge.org,733.01,Water Polo - Varsity,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Dance I,kblake@westridge.org,738.01,Dance 1,"Blake, Kashmir",US C Block,ALL,Dance Studio
-JV Cross Country,mhorn@westridge.org,740.01,Cross Country - JV,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Volleyball - Fresh/Soph,mhorn@westridge.org,741.01,Volleyball - Frosh/Soph,"Horn, Melanie",US Athletics,ALL,<None Specified>
-JV Golf,mhorn@westridge.org,744.01,Golf - JV,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Flag Football - JV,mhorn@westridge.org,780.01,Flag Football - JV,"Horn, Melanie",US Athletics,ALL,<None Specified>
-Flag Football - Varsity,mhorn@westridge.org,781.01,Flag Football - Varsity,"Horn, Melanie",US Athletics,ALL,<None Specified>
 Foundations of Computer Science & Engineering,ARogers@westridge.org,840.01,Foundations of Computer Science & Engineering,"Rogers, Autumn",US A Block,ALL,Karsh
 Full Stack Web Development,dcalmeyer@westridge.org,850.01,Full Stack Web Development,"Calmeyer, Dan",US F Block,ALL,Fish Room
 AP Computer Science A,dcalmeyer@westridge.org,855.01,AP Computer Science A,"Calmeyer, Dan",US D Block,ALL,Sci Bldg - 75
@@ -231,7 +207,7 @@ Sustainable Building and Design,dprince@westridge.org,931.01,Sustainable Buildin
 Permaculture Garden,dprince@westridge.org,932.01,Permaculture Garden,"Prince, David",US H6 Block,ALL,Art Studio 32
 Student Voices,jdavis@westridge.org,939.01,Student Voices,"Davis, Julia",US H6 Block,ALL,Marjorie May Braun Science 2
 Debate,ndalton@westridge.org,940.01,Debate,"Dalton, Nicole",US H26 Block,ALL,RHB 60
-Engineering & Design - Science Olympiad,BSurin@westridge.org,946.01,Engineering & Design - Science Olympiad,"Surin, Brooke",US H6 Block,ALL,Sci Bldg - 72 
+Engineering & Design - Science Olympiad,BSurin@westridge.org,946.01,Engineering & Design - Science Olympiad,"Surin, Brooke",US H6 Block,ALL,Sci Bldg - 72
 Engineering & Design - Robotics,ARogers@westridge.org,947.01,Engineering & Design - Robotics,"Rogers, Autumn",US H46 Block,ALL,Sci Bldg - 75
 Engineering & Design - Rocketry,dperahya@westridge.org,948.01,Engineering & Design - Rocketry,"Perahya, Dan",US H46 Block,ALL,Main Building 10
 Engineering & Design - Rocketry,dperahya@westridge.org,948.02,Engineering & Design - Rocketry,"Perahya, Dan",US H24 Block,ALL,Main Building 10
@@ -244,11 +220,11 @@ Human Development 9,Emukai@westridge.org,982.04,Human Development 9,"Mukai, Emil
 Human Development 9,Emukai@westridge.org,982.05,Human Development 9,"Mukai, Emily",US H4 Block,ALL,Fish Room
 Human Development 9,marias@westridge.org,982.06,Human Development 9,"Arias, Melanie",US H6 Block,ALL,Main Building 23
 Human Development 10,wgreenstone@westridge.org,983.01,Human Development 10,"Greenstone, Willa",US H6 Block,ALL,RHB 62
-Human Development 10,eudell@westridge.org,983.02,Human Development 10,"Udell, Edye",US H4 Block,ALL,Sci Bldg - 84 
+Human Development 10,eudell@westridge.org,983.02,Human Development 10,"Udell, Edye",US H4 Block,ALL,Sci Bldg - 84
 Human Development 10,MYurchak@westridge.org,983.03,Human Development 10,"Yurchak, Molly",US H2 Block,ALL,RHB 64
-Human Development 10,BSurin@westridge.org,983.04,Human Development 10,"Surin, Brooke",US H4 Block,ALL,Sci Bldg - 72 
+Human Development 10,BSurin@westridge.org,983.04,Human Development 10,"Surin, Brooke",US H4 Block,ALL,Sci Bldg - 72
 Human Development 10,cseiberling@westridge.org,983.05,Human Development 10,"Seiberling, Courtney",US H2 Block,ALL,Main Building 27
-Human Development 10,eudell@westridge.org,983.06,Human Development 10,"Udell, Edye",US H6 Block,ALL,Sci Bldg - 84 
+Human Development 10,eudell@westridge.org,983.06,Human Development 10,"Udell, Edye",US H6 Block,ALL,Sci Bldg - 84
 The College Process 11: Voice & Vision,kwei@westridge.org,984.01,Human Development 11,"Wei, Katie",US H2 Block,US S1,ECB 24
 The College Process 11: Voice & Vision,kwei@westridge.org,984.02,Human Development 11,"Wei, Katie",US H4 Block,US S1,ECB 24
 The College Process 11: Voice & Vision,kwei@westridge.org,984.03,Human Development 11,"Wei, Katie",US H6 Block,US S1,ECB 24
