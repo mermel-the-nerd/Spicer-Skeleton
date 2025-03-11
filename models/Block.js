@@ -1,14 +1,17 @@
 import mongoose from 'mongoose';
 
 const blockSchema = new mongoose.Schema({
-    name: {
+    block: {
         type: String,
         required: true,
     },  
     avaliableTeachers: [{
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: "Teacher", 
-    }]
+        name: {
+            type: String,
+            required: true,
+        }
+    }
+    ]
 });
 
 const Block = mongoose.model('Block', blockSchema);
