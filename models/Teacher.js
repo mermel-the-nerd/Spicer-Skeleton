@@ -15,8 +15,7 @@ const teacherSchema = new mongoose.Schema({
         required: true,
     },    
         block: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Block",
+            type: String,
             required: true,
     },
         location: {

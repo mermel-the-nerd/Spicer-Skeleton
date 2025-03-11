@@ -1,6 +1,8 @@
 import Teacher from '../models/Teacher.js';
 import subEvent from '../models/SubEvent.js';
 import Block from '../models/Block.js';
+import fs from 'fs'
+import path from 'path'
 
 
 
@@ -16,7 +18,7 @@ export const loadDataPage = async (req, res) => {
       res.status(500).send('Server Error');
   }
 };
-
+ 
 export const makeSubEvent= async (req, res) => {
 
   //are we just gonna have them put their names into the form?
@@ -34,7 +36,7 @@ export const populateTeachers = async (req, res) => {
     try {
         //Course,email,lastName,firstName,Block,Room
       const result = [] 
-      const filePath = path.join("./data", 'data/US Classes (272 records) 2025-03-10.csv'); 
+      const filePath = path.join("./data", 'US Classes (272 records) 2025-03-10.csv'); 
       fs.readFile(filePath, 'utf8', async (err, data) => {
         if (err) {
           res.send("Failed to read the file: \n" + err);
@@ -45,27 +47,43 @@ export const populateTeachers = async (req, res) => {
 				
 				
 				let currEmail = ""
+				let currId = ''
         for  (let i = 1; i < lines.length; i++) {
-        //   const classes = lines[i].split('"')[1].split(",")
-				
 				// { name, email, classes: [{name, block, location}]  }
 					
           const currLine = lines[i].split(',')
+					console.log(currLine)
 					if (currEmail === currLine[1]){
-						// if email is the same as last then old model and push new class (do not combine classes)
+						console.log(currId)
+						const teacher = await Teacher.findById(currId)
+						console.log(teacher._id)
+						const newClass = {
+							name: currLine[0],
+							block: currLine[4], 
+							location: currLine[5]
+						}
+						// console.log(newClass)
+						teacher.classes.push(newClass)
+						await teacher.save()
+          	result.push(teacher);
 					}
-					// if not then create a new teacher
+					// if not then create a new teacher 
 					else{
+						currEmail = currLine[1]
+						
 						const teacher = new Teacher({ 
 							name: `${currLine[2]}, ${currLine[3]}`, 
 							email:  currLine[1], 
 							classes: [{name: currLine[0], block: currLine[4], location: currLine[5]}]
 						})
+						currId = teacher._id
+						console.log("currId = " + currId + "\n\n")
+						await teacher.save()
+          	result.push(teacher);
 					}
 					// name = last, first
           
-          await teacher.save()
-          result.push(teacher);
+          
         }
         
         res.send(result)

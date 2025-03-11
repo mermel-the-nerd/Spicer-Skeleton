@@ -25,4 +25,4 @@ app.use('/', exampleRoutes);
 const PORT = process.env.PORT || 5000;//use port in .env
 app.listen(PORT, () => {
 console.log(`Server running on port ${PORT}`);
-});
+}); 

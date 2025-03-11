@@ -30,7 +30,7 @@ const subEventSchema = new mongoose.Schema({
     
 });
 
-const SubEvent = mongoose.model('Teacher', subEventSchema);
+const SubEvent = mongoose.model('SubEvent', subEventSchema);
 
 export default SubEvent;
 
