@@ -9,7 +9,7 @@ const subEventSchema = new mongoose.Schema({
     subbingTeacherName: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Teacher",
-        required: true,
+        
     },
     className: {
         type: String, 
