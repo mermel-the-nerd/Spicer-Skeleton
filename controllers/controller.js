@@ -1,5 +1,5 @@
 import Teacher from '../models/Teacher.js';
-import subEvent from '../models/SubEvent.js';
+import SubEvent from '../models/SubEvent.js';
 import Block from '../models/Block.js';
 import fs from 'fs'
 import path from 'path'
@@ -12,7 +12,7 @@ export const home= (req, res) => {
 
 export const loadDataPage = async (req, res) => {
   try {
-    const data = req.body.notes
+    const data = req.body.name
       res.render('data', {data});//loads the page: index, passing examples
   } catch (err) {
       res.status(500).send('Server Error');
@@ -24,7 +24,7 @@ export const makeSubEvent= async (req, res) => {
   //are we just gonna have them put their names into the form?
   const { originalTeacherName, subbingTeacherName, className, block, date, notes } = req.body;
   try {
-    const subEvent = new subEvent({ originalTeacherName, subbingTeacherName, className, block, date, notes });
+    const subEvent = new SubEvent({ originalTeacherName, subbingTeacherName, className, block, date, notes });
     await subEvent.save();
       
   } catch (err) {
