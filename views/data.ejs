@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Toggle Input Fields</title>
 </head>
 <body>
-    <p><%= data %></p>
+
+
+    <form action="/submitform" method="post">
+        <label>
+            <input type="checkbox" name="blocks[A Block][selected]" class="toggle-checkbox" value="A Block"> A Block
+            <input type="text" name="blocks[A Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="blocks[B Block][selected]" class="toggle-checkbox" value="B Block"> B Block
+            <input type="text" name="blocks[B Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
+        </label>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.querySelectorAll('.toggle-checkbox').forEach((checkbox, index) => {
+            checkbox.addEventListener('change', function() {
+                let inputField = document.querySelectorAll('.toggle-input')[index];
+                inputField.style.display = this.checked ? 'inline-block' : 'none';
+                inputField.required = false; 
+            });
+        });
+    </script>
+
 </body>
 </html>
