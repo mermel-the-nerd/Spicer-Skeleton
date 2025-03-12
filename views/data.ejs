@@ -7,11 +7,11 @@
 </head>
 <body>
 
-
     <form action="/submitform" method="post">
         <label>
             <input type="checkbox" name="blocks[A Block][selected]" class="toggle-checkbox" value="A Block"> A Block
             <input type="text" name="blocks[A Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
+            <input type="text" name="blocks[A Block][className]" class="toggle-input" placeholder="className" style="display: none;">
         </label>
         <br>
         <label>
@@ -23,11 +23,14 @@
     </form>
 
     <script>
-        document.querySelectorAll('.toggle-checkbox').forEach((checkbox, index) => {
+        document.querySelectorAll('.toggle-checkbox').forEach(checkbox => {
             checkbox.addEventListener('change', function() {
-                let inputField = document.querySelectorAll('.toggle-input')[index];
-                inputField.style.display = this.checked ? 'inline-block' : 'none';
-                inputField.required = false; 
+                let parentLabel = this.closest('label'); // Find the closest parent label
+                let inputFields = parentLabel.querySelectorAll('.toggle-input'); // Select all inputs in the same label
+                
+                inputFields.forEach(input => {
+                    input.style.display = this.checked ? 'inline-block' : 'none';
+                });
             });
         });
     </script>
