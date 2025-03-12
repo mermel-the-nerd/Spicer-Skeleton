@@ -3,6 +3,13 @@ import SubEvent from '../models/SubEvent.js';
 import Block from '../models/Block.js';
 import fs from 'fs'
 import path from 'path'
+import dotenv from 'dotenv';
+import nodemailer from 'nodemailer'
+import ejs from 'ejs'
+import { readFile } from "fs/promises";
+import { fileURLToPath } from "url";
+
+dotenv.config();
 
 
 
@@ -146,3 +153,41 @@ export const populateTeachers = async (req, res) => {
       res.status(500).send(`Server Error \n ${err}`);
     }
   };
+
+export const sendEmail = async (req, res) => {
+	try {
+
+		// const templatePath = path.join(__dirname, "emailTemplate.ejs");
+    // const emailTemplate = await fs.readFile(templatePath, "utf-8");
+
+		//DOESNT LOAD THE EJS
+    const htmlContent = ejs.render('sampleEmail.ejs', {
+      link: "https://example.com/welcome",
+    });
+
+
+		const transporter = nodemailer.createTransport({
+			host: process.env.SMTP_HOST,
+			port: process.env.SMTP_PORT,
+			auth: {
+				user: process.env.SMTP_USER,
+				pass: process.env.SMTP_PASS,
+			},
+		})
+		const mailOptions = {
+			from: process.env.SMTP_USER,
+			to: "sampleemail@myyahoo.com",
+			subject: "Welcome Email",
+			html: htmlContent,
+		};
+
+		await transporter.sendMail(mailOptions)
+		
+	
+		
+		res.send('email was sent! promise')
+			
+	} catch (err) {
+			res.status(500).send('Server Error \n' + err);
+	}
+};
