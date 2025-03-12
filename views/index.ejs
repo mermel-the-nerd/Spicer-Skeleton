@@ -7,44 +7,27 @@
     <link rel="stylesheet" href="/public/styles.css">
 </head>
 <body>
-    <h1>Substitute Form</h1>
+    <h1>Substitute Request Form</h1>
     <!--title is a wip-->
     <form action="/submitform" method="POST">
-        <div class="dropsearch">
-            <p>Name</p>
-            <input name="name" type="text" id="search" onkeyup="searchTeachers()">
-            <ul id="results" class="dropdown"></ul>
+        <div class="columns">
+            <div class="left">
+                <div class="dropsearch">
+                    <p>Name</p>
+                    <input type="text" id="originalTeacherName" name="originalTeacherName" onkeyup="searchTeachers()">
+                    <ul id="results" class="dropdown"></ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="notessect">
+                    <p>Notes for Substitute</p>
+                    <textarea name="notes" id="notes"></textarea>
+                </div>
+                <br>
+            </div>
         </div>
-        <br>
-        <!-- how to add calendar, blocks?? -->
-        <div class="notes">
-            <p>Notes for Substitute</p>
-            <textarea name="notes" id="" cols="30" rows="10"></textarea>
-        </div>
-        <br>
-        <div class="students">
-            <table id="studentnames">
-                <tr>
-                <th></th>
-                <th>Name</th>
-                </tr>
-                <tr>
-                <td>Student #1</td>
-                <td>Student Name</td>
-                </tr>
-                <tr>
-                <td>Student #2 </td>
-                <td>Student Name</td>
-                </tr>
-            </table>
-            <!--NEEDS LOTS OF WORK ^^^^ HOW DO I MAK E IT PRETTY & ALSO GENERATE FOR ENOUGH STUDENTS-->
-            <!--a for-each???? or smn-->
-            <!--follow w3schoolsthing on cssing-->
-            <input type="checkbox" id="findstudents" name="findstudents">
-            <label for="findstudents">Find students on Veracross (or wherever)</label>
-        </div>
-        <br>
-        <button type="submit">Submit</button>
+    <br>
+    <button type="submit">FIND A SUB</button>
     </form>
 </body>
 </html>
