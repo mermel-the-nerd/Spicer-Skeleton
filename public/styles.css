@@ -11,7 +11,7 @@ button {
     border: none;
 }
 
-.dropsearch {
+.dropsearchsect {
     background-color: #D4E2CA;
     margin: 16px;
     padding: 16px;
@@ -19,6 +19,13 @@ button {
 }
 
 .notessect {
+    background-color: #D4E2CA;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.blocksect {
     background-color: #D4E2CA;
     margin: 16px;
     padding: 16px;
@@ -39,6 +46,10 @@ button {
     padding: 16px;
  }
  
+ .center {
+    flex: 1 1 auto;
+    padding: 16px;
+ }
  
  .right {
     flex: 1 1 auto;

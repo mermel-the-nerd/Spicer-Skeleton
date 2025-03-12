@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>substitue page</title>
-    <link rel="stylesheet" href="/public/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Substitute Request Form</h1>
@@ -12,11 +12,55 @@
     <form action="/submitform" method="POST">
         <div class="columns">
             <div class="left">
-                <div class="dropsearch">
+                <div class="dropsearchsect">
                     <p>Name</p>
                     <input type="text" id="originalTeacherName" name="originalTeacherName" onkeyup="searchTeachers()">
                     <ul id="results" class="dropdown"></ul>
                 </div>
+            </div>
+            <div class="center">
+                <div class="blocksect">
+                        <label>
+                        <input type="checkbox" name="blocks[A Block][selected]" class="toggle-checkbox" value="A Block"> A Block
+                        <input type="text" name="blocks[A Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="blocks[B Block][selected]" class="toggle-checkbox" value="B Block"> B Block
+                        <input type="text" name="blocks[B Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="blocks[C Block][selected]" class="toggle-checkbox" value="C Block"> C Block
+                        <input type="text" name="blocks[C Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="blocks[D Block][selected]" class="toggle-checkbox" value="D Block"> D Block
+                        <input type="text" name="blocks[D Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="blocks[E Block][selected]" class="toggle-checkbox" value="E Block"> E Block
+                        <input type="text" name="blocks[E Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="blocks[F Block][selected]" class="toggle-checkbox" value="F Block"> F Block
+                        <input type="text" name="blocks[F Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="blocks[G Block][selected]" class="toggle-checkbox" value="G Block"> G Block
+                        <input type="text" name="blocks[G Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="blocks[H Block][selected]" class="toggle-checkbox" value="H Block"> H Block
+                        <input type="text" name="blocks[H Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
+                    </label>
+                </div>
+                
             </div>
             <div class="right">
                 <div class="notessect">
