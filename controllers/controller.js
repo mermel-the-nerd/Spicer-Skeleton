@@ -6,31 +6,64 @@ import path from 'path'
 
 
 
-export const home= (req, res) => {
-  res.render("index");
+export const home= async (req, res) => {
+  try {
+      const teachers = await Teacher.find();
+      const blocks = await Block.find()
+      res.render("index", {teachers, blocks});
+   } catch (error) {
+    console.error("Error processing form:", error);
+    res.status(500).send("Server error occurred.");
+}
+  
 };
 
 export const loadDataPage = async (req, res) => {
-  try {
-    const data = req.body.name
-      res.render('data', {data});//loads the page: index, passing examples
-  } catch (err) {
-      res.status(500).send('Server Error');
-  }
-};
- 
-export const makeSubEvent= async (req, res) => {
+  //this is kinda my testing bit -maddie
+    try {
+        
 
-  //are we just gonna have them put their names into the form?
-  const { originalTeacherName, subbingTeacherName, className, block, date, notes } = req.body;
+        res.send("Form submitted successfully!");
+    } catch (error) {
+        console.error("Error processing form:", error);
+        res.status(500).send("Server error occurred.");
+    }
+};
+
+
+
+ 
+export const makeSubEvent = async (req, res) => {
+  const { originalTeacherName, subbingTeacherName, block, className, date, notes } = req.body;
+  const selectedBlocks = req.body.blocks || {};
+
   try {
-    const subEvent = new SubEvent({ originalTeacherName, subbingTeacherName, className, block, date, notes });
-    await subEvent.save();
+    
+             
+        const subEvent = new SubEvent({ originalTeacherName, subbingTeacherName, className, block, date, notes });
+        await subEvent.save();  
+
+        // if (subbingTeacherName === "Not Provided") {
+        //   // Call another function to send email to teacher
+        //   const subbingTeacher = await Teacher.findOne({ name: 'subbingTeacherName' }); 
+        //   //subbingTeacher.email
+        // } else {
+        //   // Send to all available teachers
+        // }
+
+       
       
-  } catch (err) {
-      res.status(500).send('Server Error');
+    
+  } catch (error) {
+    console.error("Error occurred:", error);
+    res.status(500).send("An error occurred while processing the event.");
   }
 };
+
+
+   
+      
+  
 
 export const populateAvailable= async (req, res) => {
   try {
