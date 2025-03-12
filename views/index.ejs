@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>substitue page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/public/styles.css">
 </head>
 <body>
     <h1>Substitute Form</h1>
     <!--title is a wip-->
     <form action="/submitform" method="POST">
         <div class="dropsearch">
-            <input type="text" id="search" onkeyup="searchTeachers()" placeholder="NAME...">
+            <p>Name</p>
+            <input type="text" id="search" onkeyup="searchTeachers()">
             <ul id="results" class="dropdown"></ul>
         </div>
         <br>
@@ -40,7 +41,7 @@
             <!--a for-each???? or smn-->
             <!--follow w3schoolsthing on cssing-->
             <input type="checkbox" id="findstudents" name="findstudents">
-            <label for="findstudents">Find students for me</label>
+            <label for="findstudents">Find students on Veracross (or wherever)</label>
         </div>
         <br>
         <button type="submit">Submit</button>
