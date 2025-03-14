@@ -206,30 +206,31 @@ export const sendEmail = async (req, res) => {
 		})
 		
 		// for later ejs (also doesn't work)
-		// const htmlContent = ejs.renderFile('sampleEmail.ejs', {
-    //   link: "https://example.com/welcome",
-    // }, (err, data) => {
-		// 	if (err) {
-		// 		res.send(err)
+		const htmlContent = ejs.renderFile('./views/sampleEmail.ejs', {
+      link: "https://example.com/welcome",
+    }, (err, data) => {
+			if (err) {
+				res.send(err)
 
-		// 	}
-		// 	else{
-				
-		// 	}
+			}
+			else{
+				const mailOptions = {
+					from: process.env.SMTP_USER,
+					to: "sampleemail@myyahoo.com",
+					subject: "Welcome Email",
+					html: data,
+				};
+				transporter.sendMail(mailOptions)
+				res.send('email was sent! promise')
+			}
 			
-		// });
+		});
 
-		const mailOptions = {
-			from: process.env.SMTP_USER,
-			to: "sampleemail@myyahoo.com",
-			subject: "Welcome Email",
-			text: `${availableTeachers}`,
-		};
-		transporter.sendMail(mailOptions)
+		
 
 
 
-		res.send('email was sent! promise')
+		
 			
 	} catch (err) {
 			res.status(500).send('Server Error \n' + err);

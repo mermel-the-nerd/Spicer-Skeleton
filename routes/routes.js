@@ -10,6 +10,6 @@ router.post('/submitform', loadDataPage);//loads the page
 router.get('/populateAvailable', populateAvailable)
 router.get('/populateTeachers', populateTeachers)
 
-router.get('/sendEmail/:block', sendEmail)
+router.get('/sendEmail', sendEmail)
 
 export default router;
