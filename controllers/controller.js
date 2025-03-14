@@ -194,9 +194,6 @@ export const sendEmail = async (req, res) => {
     // const emailTemplate = await fs.readFile(templatePath, "utf-8");
 
 		//DOESNT LOAD THE EJS
-    const htmlContent = ejs.render('sampleEmail.ejs', {
-      link: "https://example.com/welcome",
-    });
 
 
 		const transporter = nodemailer.createTransport({
@@ -207,17 +204,31 @@ export const sendEmail = async (req, res) => {
 				pass: process.env.SMTP_PASS,
 			},
 		})
+		
+		// for later ejs (also doesn't work)
+		// const htmlContent = ejs.renderFile('sampleEmail.ejs', {
+    //   link: "https://example.com/welcome",
+    // }, (err, data) => {
+		// 	if (err) {
+		// 		res.send(err)
+
+		// 	}
+		// 	else{
+				
+		// 	}
+			
+		// });
+
 		const mailOptions = {
 			from: process.env.SMTP_USER,
 			to: "sampleemail@myyahoo.com",
 			subject: "Welcome Email",
-			html: htmlContent,
+			html: data,
 		};
+		transporter.sendMail(mailOptions)
 
-		await transporter.sendMail(mailOptions)
-		
-	
-		
+
+
 		res.send('email was sent! promise')
 			
 	} catch (err) {
