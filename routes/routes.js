@@ -1,5 +1,5 @@
 import express from 'express';
-import { loadDataPage, home, populateTeachers, populateAvailable, makeSubEvent} from '../controllers/controller.js';//communication between files
+import { loadDataPage, home, populateTeachers, populateAvailable, sendEmail, makeSubEvent} from '../controllers/controller.js';//communication between files
 
 const router = express.Router();//getting it from the internet?
 
@@ -9,6 +9,9 @@ router.post('/testing', loadDataPage);
 
 router.post('/submitform', makeSubEvent);//loads the page
 
-router.get('/populate', populateAvailable)
+router.get('/populateAvailable', populateAvailable)
+router.get('/populateTeachers', populateTeachers)
+
+router.get('/sendEmail', sendEmail)
 
 export default router;
