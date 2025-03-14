@@ -28,20 +28,19 @@ export const home= async (req, res) => {
 export const loadDataPage = async (req, res) => {
   //this is kinda my testing bit -maddie
   try {
-    const teacherEmails = [];
+    
     const block = "B Block";
     const blockNeeded = await Block.findOne({ block: block });
   
     // Use map to create an array of promises
-    const teacherPromises = blockNeeded.avaliableTeachers.map(async (teacher) => {
-      const foundTeacher = await Teacher.findOne({ name: teacher.name });
-      return foundTeacher ? foundTeacher.name : null; // Handle case where teacher isn't found
-    });
+    const teacherEmails = blockNeeded.avaliableTeachers.map((teacher) => teacher.email)
+        
+   
   
     // Await all promises
-    const resolvedEmails = await Promise.all(teacherPromises);
     
-    console.log(resolvedEmails);
+    
+    console.log(teacherEmails);
 
     res.redirect('/')
   } catch (error) {
@@ -68,16 +67,10 @@ export const makeSubEvent = async (req, res) => {
         //   const subbingTeacher = await Teacher.findOne({ name: 'subbingTeacherName' }); 
         //   //subbingTeacher.email
          const blockNeeded = await Block.findOne({block: block});
+        const teacherEmails = blockNeeded.avaliableTeachers.map((teacher) => teacher.email)
 
-          res.redirect(`/sendEmail/${blockNeeded} `)
-
-          const teacherEmails = []
-
-        //   blockNeeded.avaliableTeachers.forEach( teacher=> {
-        //     await teacherEmails.push(Teacher.findOne({name: teacher.name}).email)
-        //  }      
-        //  )
-        
+       
+          res.redirect(`/sendEmail/${teacherEmails} `)
 
        
       
@@ -224,6 +217,8 @@ export const sendEmail = async (req, res) => {
 				pass: process.env.SMTP_PASS,
 			},
 		})
+
+   
 		
 		const htmlContent = ejs.renderFile('./views/sampleEmail.ejs', {
       link: "https://example.com/welcome",
