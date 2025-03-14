@@ -10,7 +10,7 @@
     <h1>Substitute Request Form</h1>
     <form action="/submitform" method="POST">
         <div class="dropdown">
-            <button onclick="dropFunction()" class="dropbtn">Your name</button>
+            <button type="button" onclick="dropFunction()" class="dropbtn">Your name</button>
             <div id="myDropdown" class="dropdown-content">
                 <input type="text" placeholder="Search..." id="input" onkeyup="filterTeachers()">
                 <div id="teacherList"></div> 
@@ -32,6 +32,7 @@
     </form>
     <script>
         function dropFunction() {
+            
             document.getElementById("myDropdown").classList.toggle("show");
         }
 
@@ -49,7 +50,7 @@
 
         async function fetchTeachers() {
             try {
-                const response = await fetch('/teachers'); 
+                const response = await fetch('/populateTeachers'); 
                 const teachers = await response.json();
                 const teacherListDiv = document.getElementById("teacherList");
 
