@@ -27,15 +27,28 @@ export const home= async (req, res) => {
 
 export const loadDataPage = async (req, res) => {
   //this is kinda my testing bit -maddie
-    try {
-        
+  try {
+    const teacherEmails = [];
+    const block = "B Block";
+    const blockNeeded = await Block.findOne({ block: block });
+  
+    // Use map to create an array of promises
+    const teacherPromises = blockNeeded.avaliableTeachers.map(async (teacher) => {
+      const foundTeacher = await Teacher.findOne({ name: teacher.name });
+      return foundTeacher ? foundTeacher.name : null; // Handle case where teacher isn't found
+    });
+  
+    // Await all promises
+    const resolvedEmails = await Promise.all(teacherPromises);
+    
+    console.log(resolvedEmails);
 
-        res.send("Form submitted successfully!");
-    } catch (error) {
-        console.error("Error processing form:", error);
-        res.status(500).send("Server error occurred.");
-    }
-};
+    res.redirect('/')
+  } catch (error) {
+    console.error(error);
+  }
+  
+}
 
 
 
@@ -45,18 +58,26 @@ export const makeSubEvent = async (req, res) => {
   const selectedBlocks = req.body.blocks || {};
 
   try {
-    
+    //assume we need a sub
              
         const subEvent = new SubEvent({ originalTeacherName, subbingTeacherName, className, block, date, notes });
         await subEvent.save();  
-
+        console.log(subEvent)
         // if (subbingTeacherName === "Not Provided") {
         //   // Call another function to send email to teacher
         //   const subbingTeacher = await Teacher.findOne({ name: 'subbingTeacherName' }); 
         //   //subbingTeacher.email
-        // } else {
-        //   // Send to all available teachers
-        // }
+         const blockNeeded = await Block.findOne({block: block});
+
+          res.redirect(`/sendEmail/${blockNeeded} `)
+
+          const teacherEmails = []
+
+        //   blockNeeded.avaliableTeachers.forEach( teacher=> {
+        //     await teacherEmails.push(Teacher.findOne({name: teacher.name}).email)
+        //  }      
+        //  )
+        
 
        
       
@@ -96,7 +117,8 @@ export const populateAvailable= async (req, res) => {
 						const block = await Block.findById(currId)
 						console.log(block._id)
 						const newTeacher = {
-							name: `${currLine[2]}, ${currLine[1]}`
+							name: `${currLine[2]}, ${currLine[1]}`,
+							email: currLine[3]
 						}
 						// console.log(newClass)
 						block.avaliableTeachers.push(newTeacher)
@@ -109,7 +131,7 @@ export const populateAvailable= async (req, res) => {
 						
 						const block = new Block({ 
 							block: currLine[0],
-							avaliableTeachers: [{name: `${currLine[2]}, ${currLine[1]}`}]
+							avaliableTeachers: [{name: `${currLine[2]}, ${currLine[1]}`, email: currLine[3]}]
 						})
 						currId = block._id
 						console.log("currId = " + currId + "\n\n")
@@ -193,8 +215,6 @@ export const sendEmail = async (req, res) => {
 		// const templatePath = path.join(__dirname, "emailTemplate.ejs");
     // const emailTemplate = await fs.readFile(templatePath, "utf-8");
 
-		//DOESNT LOAD THE EJS
-
 
 		const transporter = nodemailer.createTransport({
 			host: process.env.SMTP_HOST,
@@ -205,31 +225,31 @@ export const sendEmail = async (req, res) => {
 			},
 		})
 		
-		// for later ejs (also doesn't work)
-		// const htmlContent = ejs.renderFile('sampleEmail.ejs', {
-    //   link: "https://example.com/welcome",
-    // }, (err, data) => {
-		// 	if (err) {
-		// 		res.send(err)
+		const htmlContent = ejs.renderFile('./views/sampleEmail.ejs', {
+      link: "https://example.com/welcome",
+    }, (data, err) => {
+			if (err) {
+				res.send("err" + err)
 
-		// 	}
-		// 	else{
-				
-		// 	}
+			}
+			else{
+				const mailOptions = {
+					from: process.env.SMTP_USER,
+					to: "sampleemail@myyahoo.com",
+					subject: "Welcome Email",
+					html: data,
+				};
+				transporter.sendMail(mailOptions)
+				res.send('email was sent! promise')
+			}
 			
-		// });
+		});
 
-		const mailOptions = {
-			from: process.env.SMTP_USER,
-			to: "sampleemail@myyahoo.com",
-			subject: "Welcome Email",
-			text: `${availableTeachers}`,
-		};
-		transporter.sendMail(mailOptions)
+		
 
 
 
-		res.send('email was sent! promise')
+		
 			
 	} catch (err) {
 			res.status(500).send('Server Error \n' + err);

@@ -9,6 +9,10 @@ const blockSchema = new mongoose.Schema({
         name: {
             type: String,
             required: true,
+        },
+        email: {
+            type: String,
+            required: true
         }
     }
     ]
@@ -17,4 +21,4 @@ const blockSchema = new mongoose.Schema({
 const Block = mongoose.model('Block', blockSchema);
 
 export default Block;
-    
+
