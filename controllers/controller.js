@@ -131,7 +131,7 @@ export const populateAvailable= async (req, res) => {
 						
 						const block = new Block({ 
 							block: currLine[0],
-							avaliableTeachers: [{name: `${currLine[2]}, ${currLine[1]}`}]
+							avaliableTeachers: [{name: `${currLine[2]}, ${currLine[1]}`, email: currLine[3]}]
 						})
 						currId = block._id
 						console.log("currId = " + currId + "\n\n")
