@@ -189,7 +189,7 @@ export const populateTeachers = async (req, res) => {
 
 export const sendEmail = async (req, res) => {
 	try {
-
+		const block = req.params.block
 		// const templatePath = path.join(__dirname, "emailTemplate.ejs");
     // const emailTemplate = await fs.readFile(templatePath, "utf-8");
 
@@ -223,7 +223,7 @@ export const sendEmail = async (req, res) => {
 			from: process.env.SMTP_USER,
 			to: "sampleemail@myyahoo.com",
 			subject: "Welcome Email",
-			html: data,
+			text: `${availableTeachers}`,
 		};
 		transporter.sendMail(mailOptions)
 
