@@ -17,7 +17,7 @@ export const home= async (req, res) => {
   try {
       const teachers = await Teacher.find();
       const blocks = await Block.find()
-      res.render("data", {teachers, blocks});
+      res.render("index", {teachers, blocks});
    } catch (error) {
     console.error("Error processing form:", error);
     res.status(500).send("Server error occurred.");
