@@ -5,9 +5,8 @@ import fs from 'fs'
 import path from 'path'
 
 
-
-export const home= (req, res) => {
-  res.render("index");
+export const home = async (req, res) => {
+    res.render("index");
 };
 
 export const loadDataPage = async (req, res) => {

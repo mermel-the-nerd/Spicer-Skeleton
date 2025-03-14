@@ -7,6 +7,8 @@ router.get('/', home);
 
 router.post('/submitform', loadDataPage);//loads the page
 
-router.get('/populate', populateAvailable)
+router.get('/populate', populateAvailable);
+
+router.get('/teachers', populateTeachers);
 
 export default router;
