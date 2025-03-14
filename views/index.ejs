@@ -8,7 +8,6 @@
 </head>
 <body>
     <h1>Substitute Request Form</h1>
-<<<<<<< HEAD
     <form action="/submitform" method="POST">
         <div class="dropdown">
             <button onclick="dropFunction()" class="dropbtn">Your name</button>
@@ -25,72 +24,12 @@
 
         <br>
         <div class="notes">
-=======
-    <!--title is a wip-->
-    <form action="/submitform" method="POST">
-        <div class="dropsearchsect">
-            <p>Name</p>
-            <input type="text" id="originalTeacherName" name="originalTeacherName" onkeyup="searchTeachers()">
-            <ul id="results" class="dropdown"></ul>
-        </div>
-        <div class="blocksect">
-            <label>
-                <input type="checkbox" name="blocks[A Block][selected]" class="toggle-checkbox" value="A Block"> A Block
-                <input type="text" name="blocks[A Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
-                <input type="text" name="blocks[A Block][className]" class="toggle-input" placeholder="className" style="display: none;">
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="blocks[B Block][selected]" class="toggle-checkbox" value="B Block"> B Block
-                <input type="text" name="blocks[B Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
-                <input type="text" name="blocks[A Block][className]" class="toggle-input" placeholder="className" style="display: none;">
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="blocks[C Block][selected]" class="toggle-checkbox" value="C Block"> C Block
-                <input type="text" name="blocks[C Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
-                <input type="text" name="blocks[A Block][className]" class="toggle-input" placeholder="className" style="display: none;">
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="blocks[D Block][selected]" class="toggle-checkbox" value="D Block"> D Block
-                <input type="text" name="blocks[D Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
-                <input type="text" name="blocks[A Block][className]" class="toggle-input" placeholder="className" style="display: none;">
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="blocks[E Block][selected]" class="toggle-checkbox" value="E Block"> E Block
-                <input type="text" name="blocks[E Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
-                <input type="text" name="blocks[A Block][className]" class="toggle-input" placeholder="className" style="display: none;">
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="blocks[F Block][selected]" class="toggle-checkbox" value="F Block"> F Block
-                <input type="text" name="blocks[F Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
-                <input type="text" name="blocks[A Block][className]" class="toggle-input" placeholder="className" style="display: none;">
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="blocks[G Block][selected]" class="toggle-checkbox" value="G Block"> G Block
-                <input type="text" name="blocks[G Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
-                <input type="text" name="blocks[A Block][className]" class="toggle-input" placeholder="className" style="display: none;">
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" name="blocks[H Block][selected]" class="toggle-checkbox" value="H Block"> H Block
-                <input type="text" name="blocks[H Block][teacher]" class="toggle-input" placeholder="subbingTeacherName" style="display: none;">
-                <input type="text" name="blocks[A Block][className]" class="toggle-input" placeholder="className" style="display: none;">
-            </label>
-        </div>
-        <div class="notessect">
->>>>>>> c1fa2df09732814c15bbff1b15411af339446a8e
-            <p>Notes for Substitute</p>
+        <p>Notes for Substitute</p>
             <textarea name="notes" id="notes"></textarea>
         </div>
-        <br>
+        <br> 
         <button type="submit">SEND TO MS. SPICER</button>
     </form>
-<<<<<<< HEAD
     <script>
         function dropFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
@@ -136,21 +75,8 @@
 
         document.addEventListener("DOMContentLoaded", fetchTeachers);
     </script>
-=======
             
     <script>
-        document.querySelectorAll('.toggle-checkbox').forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                let parentLabel = this.closest('label'); // Find the closest parent label
-                let inputFields = parentLabel.querySelectorAll('.toggle-input'); // Select all inputs in the same label
-                
-                inputFields.forEach(input => {
-                    input.style.display = this.checked ? 'inline-block' : 'none';
-                });
-            });
-        });
     </script>
-
->>>>>>> c1fa2df09732814c15bbff1b15411af339446a8e
 </body>
 </html>
