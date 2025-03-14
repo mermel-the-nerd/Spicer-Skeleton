@@ -96,7 +96,8 @@ export const populateAvailable= async (req, res) => {
 						const block = await Block.findById(currId)
 						console.log(block._id)
 						const newTeacher = {
-							name: `${currLine[2]}, ${currLine[1]}`
+							name: `${currLine[2]}, ${currLine[1]}`,
+							email: currLine[3]
 						}
 						// console.log(newClass)
 						block.avaliableTeachers.push(newTeacher)
@@ -193,8 +194,6 @@ export const sendEmail = async (req, res) => {
 		// const templatePath = path.join(__dirname, "emailTemplate.ejs");
     // const emailTemplate = await fs.readFile(templatePath, "utf-8");
 
-		//DOESNT LOAD THE EJS
-
 
 		const transporter = nodemailer.createTransport({
 			host: process.env.SMTP_HOST,
@@ -205,12 +204,11 @@ export const sendEmail = async (req, res) => {
 			},
 		})
 		
-		// for later ejs (also doesn't work)
 		const htmlContent = ejs.renderFile('./views/sampleEmail.ejs', {
       link: "https://example.com/welcome",
-    }, (err, data) => {
+    }, (data, err) => {
 			if (err) {
-				res.send(err)
+				res.send("err" + err)
 
 			}
 			else{
