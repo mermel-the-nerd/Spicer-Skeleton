@@ -1,8 +1,6 @@
-th, td {
-    padding: 7px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}  
+h1 {
+    padding: 16px;
+}
 
 table {
     border-collapse: collapse;
@@ -57,3 +55,57 @@ table {
   .dropdown-content a:hover {background-color: #f1f1f1}
   
   .show {display:block;}
+button {
+    margin: 16px;
+    padding: 16px;
+    background-color: #8DBC66;
+    color: #313131;
+    border-radius: 4px;
+    border: none;
+}
+
+.dropsearchsect {
+    background-color: #D4E2CA;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.notessect {
+    background-color: #D4E2CA;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.blocksect {
+    background-color: #D4E2CA;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+#notes {
+    width: 100%
+}
+.columns {
+    display: flex;
+    width: auto;
+ }
+ 
+ 
+ .left {
+    flex: 1 1 auto;
+    padding: 16px;
+ }
+ 
+ .center {
+    flex: 1 1 auto;
+    padding: 16px;
+ }
+ 
+ .right {
+    flex: 1 1 auto;
+    max-width: 50%;
+    padding: 16px;
+ }
