@@ -10,7 +10,7 @@ export const home= async (req, res) => {
   try {
       const teachers = await Teacher.find();
       const blocks = await Block.find()
-      res.render("index", {teachers, blocks});
+      res.render("data", {teachers, blocks});
    } catch (error) {
     console.error("Error processing form:", error);
     res.status(500).send("Server error occurred.");
@@ -20,15 +20,28 @@ export const home= async (req, res) => {
 
 export const loadDataPage = async (req, res) => {
   //this is kinda my testing bit -maddie
-    try {
-        
+  try {
+    const teacherEmails = [];
+    const block = "B Block";
+    const blockNeeded = await Block.findOne({ block: block });
+  
+    // Use map to create an array of promises
+    const teacherPromises = blockNeeded.avaliableTeachers.map(async (teacher) => {
+      const foundTeacher = await Teacher.findOne({ name: teacher.name });
+      return foundTeacher ? foundTeacher.name : null; // Handle case where teacher isn't found
+    });
+  
+    // Await all promises
+    const resolvedEmails = await Promise.all(teacherPromises);
+    
+    console.log(resolvedEmails);
 
-        res.send("Form submitted successfully!");
-    } catch (error) {
-        console.error("Error processing form:", error);
-        res.status(500).send("Server error occurred.");
-    }
-};
+    res.redirect('/')
+  } catch (error) {
+    console.error(error);
+  }
+  
+}
 
 
 
@@ -38,18 +51,26 @@ export const makeSubEvent = async (req, res) => {
   const selectedBlocks = req.body.blocks || {};
 
   try {
-    
+    //assume we need a sub
              
         const subEvent = new SubEvent({ originalTeacherName, subbingTeacherName, className, block, date, notes });
         await subEvent.save();  
-
+        console.log(subEvent)
         // if (subbingTeacherName === "Not Provided") {
         //   // Call another function to send email to teacher
         //   const subbingTeacher = await Teacher.findOne({ name: 'subbingTeacherName' }); 
         //   //subbingTeacher.email
-        // } else {
-        //   // Send to all available teachers
-        // }
+         const blockNeeded = await Block.findOne({block: block});
+
+          res.redirect(`/sendEmail/${blockNeeded} `)
+
+          const teacherEmails = []
+
+        //   blockNeeded.avaliableTeachers.forEach( teacher=> {
+        //     await teacherEmails.push(Teacher.findOne({name: teacher.name}).email)
+        //  }      
+        //  )
+        
 
        
       
