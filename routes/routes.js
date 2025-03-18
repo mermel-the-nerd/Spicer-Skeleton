@@ -9,9 +9,8 @@ router.post('/testing', loadDataPage);
 
 router.post('/submitform', makeSubEvent);//loads the page
 
-router.get('/help', makeReport);//loads the page
+router.get('/report', makeReport);//loads the page
 
-router.get('/help', makeReport);//loads the page
 
 // router.get('/populateAvailable', populateAvailable)
 // router.get('/populateTeachers', populateTeachers)
