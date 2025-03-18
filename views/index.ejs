@@ -10,7 +10,7 @@
     <h1>Substitute Request Form</h1>
     <form action="/submitform" method="POST">
         <div class="dropdown">
-            <button onclick="dropFunction()" class="dropbtn">Your name</button>
+            <button type="button" onclick="dropFunction()" class="dropbtn">Your name</button>
             <div id="myDropdown" class="dropdown-content">
                 <input type="text" placeholder="Search..." id="input" onkeyup="filterTeachers()">
                 <div id="teacherList"></div> 
@@ -35,45 +35,69 @@
             document.getElementById("myDropdown").classList.toggle("show");
         }
 
-        function filterTeachers() {
+        async function filterTeachers() {
             let input = document.getElementById("input");
             let filter = input.value.toUpperCase();
             let dropdown = document.getElementById("myDropdown");
             let links = dropdown.getElementsByTagName("a");
 
-            for (let i = 0; i < links.length; i++) {
-                let txtValue = links[i].textContent || links[i].innerText;
-                links[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
-            }
+            let res = await fetch(`/search?q=${filter}`);
+            let teachers = await res.json();
+            const teacherListDiv = document.getElementById("teacherList");
+            teacherListDiv.innerHTML = "";
+
+            let previousTeacherName = null;
+
+            teachers.forEach(teacher => {
+                if (teacher.name !== previousTeacherName) { 
+                    let a = document.createElement("a");
+                    a.textContent = teacher.name;
+                    a.href = "#"; 
+                    a.onclick = function() {
+                        document.getElementById("input").value = teacher.name;
+                        dropFunction(); 
+                        event.preventDefault(); // Prevent page jump
+                        selectTeacher(teacher.name);
+                    };
+                    teacherListDiv.appendChild(a);
+                }
+                previousTeacherName = teacher.name; 
+            });
         }
+        
+        document.addEventListener("click", function(event) {
+            let dropdown = document.getElementById("myDropdown");
+            let button = document.querySelector(".dropbtn");
 
-        async function fetchTeachers() {
-            try {
-                const response = await fetch('/teachers'); 
-                const teachers = await response.json();
-                const teacherListDiv = document.getElementById("teacherList");
-
-                let previousTeacherName = null;
-
-                teachers.forEach(teacher => {
-                    if (teacher.name !== previousTeacherName) { 
-                        let a = document.createElement("a");
-                        a.textContent = teacher.name;
-                        a.href = "#"; 
-                        a.onclick = function() {
-                            document.getElementById("input").value = teacher.name;
-                            dropFunction(); 
-                        };
-                        teacherListDiv.appendChild(a);
-                    }
-                    previousTeacherName = teacher.name; 
-                });
-            } catch (error) {
-                console.error("Error fetching teachers:", error);
+            if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove("show");
             }
-        }
+        });
 
-        document.addEventListener("DOMContentLoaded", fetchTeachers);
+        async function selectTeacher(teacherName) {
+            let button = document.querySelector(".dropbtn");
+            button.textContent = teacherName;  // Update button text
+            document.getElementById("input").value = teacherName;  // Keep input updated
+            button.setAttribute("href", `#${teacherName}`);
+
+            // Fetch classes for the selected teacher
+            let res = await fetch(`/getTeacherClasses?name=${encodeURIComponent(teacherName)}`);
+            let classes = await res.json();
+
+            // Populate class selection with radio buttons
+            let classContainer = document.getElementById("classesContainer");
+            classContainer.innerHTML = ""; // Clear previous options
+
+            classes.forEach((cls, index) => {
+                let label = document.createElement("label");
+                label.innerHTML = `
+                    <input type="radio" name="selectedClass" value="${cls.name}" id="class${index}">
+                    ${cls.name} (Block: ${cls.block})
+                `;
+                classContainer.appendChild(label);
+                classContainer.appendChild(document.createElement("br")); // Line break for better spacing
+            });
+        }
     </script>
             
     <script>
