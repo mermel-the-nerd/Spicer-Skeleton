@@ -89,8 +89,38 @@ export const makeSubEvent = async (req, res) => {
 };
 
 
-   
+export const searchTeachers = async (req, res) => {
+  const query = req.query.q || "";
+
+  if (!query) {
+    return res.json([]);
+  }
+
+  const results = await Teacher.find({ name: new RegExp(query, "i") })
+  .limit(5)
+  .exec();
+
+  res.json(results);
+}
       
+export const getTeacherClasses = async (req, res) => {
+  const teacherName = req.query.name;
+  if (!teacherName) {
+      return res.status(400).json({ error: "No teacher name provided" });
+  }
+
+  try {
+      const teacher = await Teacher.findOne({ name: teacherName });
+      if (!teacher) {
+          return res.status(404).json({ error: "Teacher not found" });
+      }
+
+      res.json(teacher.classes);
+  } catch (error) {
+      console.error("Error fetching teacher classes:", error);
+      res.status(500).json({ error: "Server error" });
+  }
+};
   
 
 // export const populateAvailable= async (req, res) => {
