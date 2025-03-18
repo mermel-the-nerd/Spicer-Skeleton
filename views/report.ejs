@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+          <th>Original Teacher</th>
+          <th>Substitute Teacher</th>
+          <th>Class Name</th>
+          <th>Block</th>
+          <th>Date</th>
+          <th>Notes</th>
+        </tr>
+      
+        <% subEvents.forEach(event => { 
+              console.log(event.originalTeacherName, event.subbingTeacherName);
+            %>
+            <tr>
+          <td><%= event.originalTeacherName%></td>
+          <td><%= event.subbingTeacherName%></td>
+          <td><%= event.className%></td>
+          <td><%= event.block%></td>
+
+          <% const today = event.date;
+
+          const todayDay = today.getDate();
+          const todayDayOfWeek = today.getDay();
+          const todayMonth = today.getMonth() + 1; // The month index starts from 0
+          const todayYear = today.getFullYear();
+          
+          let currentDate = `${todayMonth}/${todayDay}/${todayYear}`;%>
+
+          <td><%= currentDate%></td>
+
+
+          <td><%= event.notes%></td>
+        </tr>
+       <% }) %>
+
+      
+        
+       
+      </table>
+</body>
+</html>

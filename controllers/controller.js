@@ -28,20 +28,19 @@ export const home= async (req, res) => {
 export const loadDataPage = async (req, res) => {
   //this is kinda my testing bit -maddie
   try {
-    const teacherEmails = [];
+    
     const block = "B Block";
     const blockNeeded = await Block.findOne({ block: block });
   
     // Use map to create an array of promises
-    const teacherPromises = blockNeeded.avaliableTeachers.map(async (teacher) => {
-      const foundTeacher = await Teacher.findOne({ name: teacher.name });
-      return foundTeacher ? foundTeacher.name : null; // Handle case where teacher isn't found
-    });
+    const teacherEmails = blockNeeded.avaliableTeachers.map((teacher) => teacher.email)
+        
+   
   
     // Await all promises
-    const resolvedEmails = await Promise.all(teacherPromises);
     
-    console.log(resolvedEmails);
+    
+    console.log(teacherEmails);
 
     res.redirect('/')
   } catch (error) {
@@ -68,17 +67,28 @@ export const makeSubEvent = async (req, res) => {
         //   const subbingTeacher = await Teacher.findOne({ name: 'subbingTeacherName' }); 
         //   //subbingTeacher.email
          const blockNeeded = await Block.findOne({block: block});
+           const teacherEmails = blockNeeded.avaliableTeachers.map((teacher) => teacher.email)
 
-          res.redirect(`/sendEmail/${blockNeeded} `)
+       
+          res.redirect(`/sendEmail/${teacherEmails} `)
 
-          const teacherEmails = []
+       
+      
+    
+  } catch (error) {
+    console.error("Error occurred:", error);
+    res.status(500).send("An error occurred while processing the event.");
+  }
+};
 
-        //   blockNeeded.avaliableTeachers.forEach( teacher=> {
-        //     await teacherEmails.push(Teacher.findOne({name: teacher.name}).email)
-        //  }      
-        //  )
-        
 
+export const makeReport = async (req, res) => {
+  const subEvents = await SubEvent.find();
+
+  try {
+    console.log(subEvents)
+    res.render('report', {subEvents} )       
+       
        
       
     
@@ -253,6 +263,8 @@ async function sendEmail(destination="sampleemail@myyahoo.com", content="./views
 				pass: process.env.SMTP_PASS,
 			},
 		})
+
+   
 		
 		const htmlContent = ejs.renderFile(content, {
 			link: "https://example.com/welcome",
