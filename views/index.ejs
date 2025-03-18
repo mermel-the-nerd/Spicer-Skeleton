@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Substitute Request Form</h1>
-    <form action="/submitform" method="POST">
+    <form action="/submitform" class="subform" method="POST">
         <div class="dropdown">
             <button type="button" onclick="dropFunction()" class="dropbtn">Your name</button>
             <div id="myDropdown" class="dropdown-content">
@@ -16,7 +16,28 @@
                 <div id="teacherList"></div> 
             </div>
         </div>
-        
+        <div class="calendarsect">
+            <div class="calendar-header">
+              <button id="prev-month">‹</button>
+              <div id="month-year"></div>
+              <button id="next-month">›</button>
+            </div>
+            <div class="calendar-body">
+                <div class="calendar-weekdays">
+                    <!-- Weekday Names -->
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="calendar-dates">
+                    <!-- Dates will be populated here -->
+                </div>
+            </div>
+        </div>
         <div id="classList" class="class-section">
             <h3>Classes</h3>
             <div id="classesContainer"></div>
@@ -100,7 +121,6 @@
         }
     </script>
             
-    <script>
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

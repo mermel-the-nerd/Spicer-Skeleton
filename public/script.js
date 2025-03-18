@@ -54,6 +54,7 @@ renderCalendar(currentMonth, currentYear);
 /* Navigate between months */
 prevMonthBtn.addEventListener('click', (e) => {
     e.preventDefault(); // Prevent form submission
+    e.stopPropagation(); // Ensures it doesn't bubble up to the form
     currentMonth--;
     if (currentMonth < 0) {
         currentMonth = 11;
@@ -64,6 +65,7 @@ prevMonthBtn.addEventListener('click', (e) => {
 
 nextMonthBtn.addEventListener('click', (e) => {
     e.preventDefault(); // Prevent form submission
+    e.stopPropagation(); // Ensures it doesn't bubble up to the form
     currentMonth++;
     if (currentMonth > 11) {
         currentMonth = 0;
@@ -78,4 +80,3 @@ calendarDates.addEventListener('click', (e) => {
         alert(`You clicked on ${e.target.textContent} ${months[currentMonth]} ${currentYear}`);
     }
 });
-  
