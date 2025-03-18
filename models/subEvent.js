@@ -1,14 +1,12 @@
 import mongoose from 'mongoose';
 
 const subEventSchema = new mongoose.Schema({
-    orginalTeacherName: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Teacher",
-        required: true,
+    originalTeacherName: {
+        type: String,
+       required: true,
     },
     subbingTeacherName: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Teacher",
+        type: String,
         
     },
     className: {
@@ -21,12 +19,12 @@ const subEventSchema = new mongoose.Schema({
 
     date:{
         type: Date,
-        requred: true,
+        // required: true,
     },
 
     notes: {
         type: String
-    }
+    },
     
 });
 

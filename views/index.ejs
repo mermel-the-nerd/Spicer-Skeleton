@@ -12,7 +12,7 @@
         <div class="dropdown">
             <button type="button" onclick="dropFunction()" class="dropbtn">Your name</button>
             <div id="myDropdown" class="dropdown-content">
-                <input type="text" placeholder="Search..." id="input" onkeyup="filterTeachers()">
+                <input type="text" name="originalTeacherName" placeholder="Search..." id="input" onkeyup="filterTeachers()">
                 <div id="teacherList"></div> 
             </div>
         </div>
@@ -91,7 +91,7 @@
             classes.forEach((cls, index) => {
                 let label = document.createElement("label");
                 label.innerHTML = `
-                    <input type="radio" name="selectedClass" value="${cls.name}" id="class${index}">
+                    <input type="radio" name="classData" value="${cls.name},${cls.block}" id="class${index}">
                     ${cls.name} (Block: ${cls.block})
                 `;
                 classContainer.appendChild(label);

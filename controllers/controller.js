@@ -53,25 +53,32 @@ export const loadDataPage = async (req, res) => {
 
  
 export const makeSubEvent = async (req, res) => {
-  const { originalTeacherName, subbingTeacherName, block, className, date, notes } = req.body;
+  const { originalTeacherName, subbingTeacherName, classData, notes } = req.body;
   const selectedBlocks = req.body.blocks || {};
 
   try {
     //assume we need a sub
+    console.log(classData)
+    //Chemistry I (Block: B Block)
+      const splitClassData =  classData.split(",")
+      const className = splitClassData[0];
+      const block = splitClassData[1];
+     
+
              
-        const subEvent = new SubEvent({ originalTeacherName, subbingTeacherName, className, block, date, notes });
+        const subEvent = new SubEvent({ originalTeacherName, subbingTeacherName, className, block, notes });
         await subEvent.save();  
         console.log(subEvent)
         // if (subbingTeacherName === "Not Provided") {
         //   // Call another function to send email to teacher
         //   const subbingTeacher = await Teacher.findOne({ name: 'subbingTeacherName' }); 
         //   //subbingTeacher.email
-         const blockNeeded = await Block.findOne({block: block});
-           const teacherEmails = blockNeeded.avaliableTeachers.map((teacher) => teacher.email)
+        //  const blockNeeded = await Block.findOne({block: block});
+        //    const teacherEmails = blockNeeded.avaliableTeachers.map((teacher) => teacher.email)
 
        
-          res.redirect(`/sendEmail/${teacherEmails} `)
-
+          // res.redirect(`/sendEmail/${teacherEmails} `)
+          res.redirect('/report')
        
       
     
