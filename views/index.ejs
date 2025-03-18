@@ -4,52 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>substitue page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"  href="styles.css">
 </head>
 <body>
     <h1>Substitute Request Form</h1>
-    <!--title is a wip-->
     <form action="/submitform" method="POST">
-        <div class="dropsearchsect">
-            <p>Name</p>
-            <input type="text" id="originalTeacherName" name="originalTeacherName" onkeyup="searchTeachers()">
-            <ul id="results" class="dropdown"></ul>
-        </div>
-        <div class="calendarsect">
-            <div class="calendar-header">
-              <button id="prev-month">‹</button>
-              <div id="month-year"></div>
-              <button id="next-month">›</button>
+        <div class="dropdown">
+            <button type="button" onclick="dropFunction()" class="dropbtn">Your name</button>
+            <div id="myDropdown" class="dropdown-content">
+                <input type="text" placeholder="Search..." id="input" onkeyup="filterTeachers()">
+                <div id="teacherList"></div> 
             </div>
-            <div class="calendar-body">
-                <div class="calendar-weekdays">
-                    <!-- Weekday Names -->
-                    <div>Sun</div>
-                    <div>Mon</div>
-                    <div>Tue</div>
-                    <div>Wed</div>
-                    <div>Thu</div>
-                    <div>Fri</div>
-                    <div>Sat</div>
-                </div>
-                <div class="calendar-dates">
-                    <!-- Dates will be populated here -->
-                </div>
-            </div>
-        </div>
-        <div class="blocksect">
-            <p>yay</p>
-        </div>
-        <div class="notessect">
-            <p>Notes for Substitute</p>
-            <textarea name="notes" id="notes"></textarea>
-        </div>
-        <br>
-        <div class="buttondiv">
-            <input type="submit" value="Submit">
         </div>
         
+        <div id="classList" class="class-section">
+            <h3>Classes</h3>
+            <div id="classesContainer"></div>
+        </div>
+
+        <br>
+        <div class="notes">
+        <p>Notes for Substitute</p>
+            <textarea name="notes" id="notes"></textarea>
+        </div>
+        <br> 
+        <button type="submit">SEND TO MS. SPICER</button>
     </form>
-<script src="script.js"></script>
+    <script>
+        function dropFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        async function filterTeachers() {
+            let input = document.getElementById("input");
+            let filter = input.value.toUpperCase();
+            let dropdown = document.getElementById("myDropdown");
+            let links = dropdown.getElementsByTagName("a");
+
+            let res = await fetch(`/search?q=${filter}`);
+            let teachers = await res.json();
+            const teacherListDiv = document.getElementById("teacherList");
+            teacherListDiv.innerHTML = "";
+
+            let previousTeacherName = null;
+
+            teachers.forEach(teacher => {
+                if (teacher.name !== previousTeacherName) { 
+                    let a = document.createElement("a");
+                    a.textContent = teacher.name;
+                    a.href = "#"; 
+                    a.onclick = function() {
+                        document.getElementById("input").value = teacher.name;
+                        dropFunction(); 
+                        event.preventDefault(); // Prevent page jump
+                        selectTeacher(teacher.name);
+                    };
+                    teacherListDiv.appendChild(a);
+                }
+                previousTeacherName = teacher.name; 
+            });
+        }
+        
+        document.addEventListener("click", function(event) {
+            let dropdown = document.getElementById("myDropdown");
+            let button = document.querySelector(".dropbtn");
+
+            if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove("show");
+            }
+        });
+
+        async function selectTeacher(teacherName) {
+            let button = document.querySelector(".dropbtn");
+            button.textContent = teacherName;  // Update button text
+            document.getElementById("input").value = teacherName;  // Keep input updated
+            button.setAttribute("href", `#${teacherName}`);
+
+            // Fetch classes for the selected teacher
+            let res = await fetch(`/getTeacherClasses?name=${encodeURIComponent(teacherName)}`);
+            let classes = await res.json();
+
+            // Populate class selection with radio buttons
+            let classContainer = document.getElementById("classesContainer");
+            classContainer.innerHTML = ""; // Clear previous options
+
+            classes.forEach((cls, index) => {
+                let label = document.createElement("label");
+                label.innerHTML = `
+                    <input type="radio" name="selectedClass" value="${cls.name}" id="class${index}">
+                    ${cls.name} (Block: ${cls.block})
+                `;
+                classContainer.appendChild(label);
+                classContainer.appendChild(document.createElement("br")); // Line break for better spacing
+            });
+        }
+    </script>
+            
+    <script>
+    </script>
 </body>
 </html>
