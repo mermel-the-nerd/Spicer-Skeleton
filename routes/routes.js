@@ -1,5 +1,5 @@
 import express from 'express';
-import { loadDataPage, home, sendEmail, makeSubEvent} from '../controllers/controller.js';//communication between files
+import { loadDataPage, home, sendEmailTest, makeSubEvent, makeReport, getTeacherClasses, searchTeachers} from '../controllers/controller.js';//communication between files
 
 const router = express.Router();//getting it from the internet?
 
