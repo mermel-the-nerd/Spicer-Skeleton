@@ -67,7 +67,7 @@ export const makeSubEvent = async (req, res) => {
         //   const subbingTeacher = await Teacher.findOne({ name: 'subbingTeacherName' }); 
         //   //subbingTeacher.email
          const blockNeeded = await Block.findOne({block: block});
-        const teacherEmails = blockNeeded.avaliableTeachers.map((teacher) => teacher.email)
+           const teacherEmails = blockNeeded.avaliableTeachers.map((teacher) => teacher.email)
 
        
           res.redirect(`/sendEmail/${teacherEmails} `)
@@ -82,7 +82,22 @@ export const makeSubEvent = async (req, res) => {
 };
 
 
-   
+export const makeReport = async (req, res) => {
+  const subEvents = await SubEvent.find();
+
+  try {
+    console.log(subEvents)
+    res.render('report', {subEvents} )       
+       
+       
+      
+    
+  } catch (error) {
+    console.error("Error occurred:", error);
+    res.status(500).send("An error occurred while processing the event.");
+  }
+};
+
       
   
 
@@ -208,6 +223,8 @@ export const sendEmail = async (req, res) => {
 		// const templatePath = path.join(__dirname, "emailTemplate.ejs");
     // const emailTemplate = await fs.readFile(templatePath, "utf-8");
 
+		//DOESNT LOAD THE EJS
+
 
 		const transporter = nodemailer.createTransport({
 			host: process.env.SMTP_HOST,
@@ -220,7 +237,7 @@ export const sendEmail = async (req, res) => {
 
    
 		
-		const htmlContent = ejs.renderFile('./views/sampleEmail.ejs', {
+				const htmlContent = ejs.renderFile('./views/sampleEmail.ejs', {
       link: "https://example.com/welcome",
     }, (data, err) => {
 			if (err) {
