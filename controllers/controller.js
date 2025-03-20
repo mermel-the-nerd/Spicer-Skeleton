@@ -95,15 +95,29 @@ export const makeReport = async (req, res) => {
   try {
     console.log(subEvents)
     res.render('report', {subEvents} )       
-       
-       
-      
     
   } catch (error) {
     console.error("Error occurred:", error);
     res.status(500).send("An error occurred while processing the event.");
   }
 };
+
+// export const generatePDF = async (req,res) => {
+//   const pdfContent = res.table
+//   generatePDFfromHTML(pdfContent, 'custom.pdf')
+//   .then(() => console.log('PDF generated successfully'))
+//   .catch(err => console.error('Error generating PDF:', err));
+// }
+
+// async function generatePDFfromHTML(htmlContent, outputPath) {
+//   const browser = await puppeteer.launch();
+//   const page = await browser.newPage();
+//   await page.setContent(htmlContent);
+//   await page.pdf({ path: outputPath, format: 'A4' });
+//   await browser.close();
+// }
+
+
 
 
 export const searchTeachers = async (req, res) => {
