@@ -6,13 +6,13 @@
     <title>substitue page</title>
     <link rel="stylesheet"  href="styles.css">
 </head>
-<body>
+<body onload="dropFunction()">
     <h1>Substitute Request Form</h1>
     <form action="/submitform" class="subform" method="POST">
         <div class="dropdown">
-            <button type="button" onclick="dropFunction()" class="dropbtn">Your name</button>
+            <!-- <button type="button" onclick="dropFunction()" class="dropbtn">Your name</button> -->
             <div id="myDropdown" class="dropdown-content">
-                <input type="text" name="originalTeacherName" placeholder="Search..." id="input" onkeyup="filterTeachers()">
+                <input type="text" name="originalTeacherName" placeholder="Search your name..." id="input" onkeyup="filterTeachers()">
                 <div id="teacherList"></div> 
             </div>
         </div>
@@ -42,7 +42,6 @@
             <h3>Classes</h3>
             <div id="classesContainer"></div>
         </div>
-
         <br>
         <div class="notes">
         <p>Notes for Substitute</p>
@@ -52,11 +51,12 @@
         <button type="submit">SEND TO MS. SPICER</button>
     </form>
     <script>
-        function dropFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
+        // function dropFunction() {
+        //     document.getElementById("myDropdown").classList.toggle("show");
+        // }
 
         async function filterTeachers() {
+            document.getElementById("teacherList").style.display = "block";
             let input = document.getElementById("input");
             let filter = input.value.toUpperCase();
             let dropdown = document.getElementById("myDropdown");
@@ -76,8 +76,7 @@
                     a.href = "#"; 
                     a.onclick = function() {
                         document.getElementById("input").value = teacher.name;
-                        dropFunction(); 
-                        event.preventDefault(); // Prevent page jump
+                        event.preventDefault(); 
                         selectTeacher(teacher.name);
                     };
                     teacherListDiv.appendChild(a);
@@ -86,20 +85,18 @@
             });
         }
         
-        document.addEventListener("click", function(event) {
-            let dropdown = document.getElementById("myDropdown");
-            let button = document.querySelector(".dropbtn");
-
-            if (!button.contains(event.target) && !dropdown.contains(event.target)) {
-                dropdown.classList.remove("show");
-            }
-        });
+        // document.addEventListener("click", function(event) {
+        //     let dropdown = document.getElementById("myDropdown");
+        //     if (!dropdown.contains(event.target)) {
+        //         dropdown.classList.remove("show");
+        //     }
+        // });
 
         async function selectTeacher(teacherName) {
-            let button = document.querySelector(".dropbtn");
-            button.textContent = teacherName;  // Update button text
+            document.getElementById("teacherList").style.display = "none";
+            // let button = document.querySelector(".dropbtn");
             document.getElementById("input").value = teacherName;  // Keep input updated
-            button.setAttribute("href", `#${teacherName}`);
+            // button.setAttribute("href", `#${teacherName}`);
 
             // Fetch classes for the selected teacher
             let res = await fetch(`/getTeacherClasses?name=${encodeURIComponent(teacherName)}`);

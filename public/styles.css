@@ -8,19 +8,6 @@ table {
     border-collapse: collapse;
 }
 
-.dropbtn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #3e8e41;
-}
-
 #input {
     box-sizing: border-box;
     background-position: 14px 12px;
@@ -39,8 +26,7 @@ table {
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
+    position: relative;
     background-color: #f6f6f6;
     min-width: 230px;
     border: 1px solid #ddd;
@@ -71,13 +57,6 @@ button {
 form {
     width: 35%;
     margin: auto;
-}
-
-.dropsearchsect {
-    background-color: #D4E2CA;
-    margin: 16px;
-    padding: 16px;
-    border-radius: 8px;
 }
 
 .notessect {
