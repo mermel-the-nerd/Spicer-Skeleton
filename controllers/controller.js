@@ -8,6 +8,7 @@ import nodemailer from 'nodemailer'
 import ejs from 'ejs'
 import { readFile } from "fs/promises";
 import { fileURLToPath } from "url";
+import puppeteer from 'puppeteer';
 
 dotenv.config();
 
@@ -53,8 +54,8 @@ export const loadDataPage = async (req, res) => {
 
  
 export const makeSubEvent = async (req, res) => {
-  const { originalTeacherName, subbingTeacherName, classData, notes } = req.body;
-  const selectedBlocks = req.body.blocks || {};
+  const { originalTeacherName, subbingTeacherName, classData, notes,date } = req.body;
+  
 
   try {
     //assume we need a sub
@@ -66,7 +67,7 @@ export const makeSubEvent = async (req, res) => {
      
 
              
-        const subEvent = new SubEvent({ originalTeacherName, subbingTeacherName, className, block, notes });
+        const subEvent = new SubEvent({ originalTeacherName, subbingTeacherName, className, block, notes, date });
         await subEvent.save();  
         console.log(subEvent)
         // if (subbingTeacherName === "Not Provided") {
@@ -93,17 +94,50 @@ export const makeReport = async (req, res) => {
   const subEvents = await SubEvent.find();
 
   try {
-    console.log(subEvents)
+   
     res.render('report', {subEvents} )       
-       
-       
-      
     
   } catch (error) {
     console.error("Error occurred:", error);
     res.status(500).send("An error occurred while processing the event.");
   }
 };
+
+
+export const generatePDF = async (req, res) => {
+  try {
+    const pdfContent = req.body.table;
+    console.log(req.body)
+    if (!pdfContent) {
+      console.log('data not sent')
+    }
+
+    const outputPath = 'subs.pdf';
+    await generatePDFfromHTML(pdfContent, outputPath);
+
+    console.log('PDF generated successfully');
+
+    // Read the generated PDF and send it as a response
+    const pdfBuffer = fs.readFileSync(outputPath);
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'attachment; filename=custom.pdf');
+    res.send(pdfBuffer);
+  } catch (err) {
+    console.error('Error generating PDF:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+
+async function generatePDFfromHTML(htmlContent, outputPath) {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.setContent(htmlContent);
+  await page.pdf({ path: outputPath, format: 'A4' });
+  await browser.close();
+}
+
+
 
 
 export const searchTeachers = async (req, res) => {

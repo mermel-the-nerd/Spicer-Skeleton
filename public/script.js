@@ -2,6 +2,7 @@ const calendarDates = document.querySelector('.calendar-dates');
 const monthYear = document.getElementById('month-year');
 const prevMonthBtn = document.getElementById('prev-month');
 const nextMonthBtn = document.getElementById('next-month');
+const dateGone = document.getElementById('date');
 
 let currentDate = new Date();
 let currentMonth = currentDate.getMonth();
@@ -77,6 +78,15 @@ nextMonthBtn.addEventListener('click', (e) => {
 /* Alert date on user click */
 calendarDates.addEventListener('click', (e) => {
     if (e.target.classList.contains('calendar-day')) {
-        alert(`You clicked on ${e.target.textContent} ${months[currentMonth]} ${currentYear}`);
+        const day = e.target.textContent;
+        const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        document.getElementById('date').value = dateStr;
+
+        document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('date'));
+        e.target.classList.add('date');
     }
+    console.log(document.getElementById('date').value)
 });
+
+// this is not right. ineed help
+// use input datepicker . display hidden. + name is date or smn . push date to the value
