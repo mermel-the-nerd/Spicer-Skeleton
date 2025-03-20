@@ -32,3 +32,7 @@ button {
     border-radius: 4px;
     border: none;
 }
+
+button:hover {
+    background-color: #6A9951;
+}
