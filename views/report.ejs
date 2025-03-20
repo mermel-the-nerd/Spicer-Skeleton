@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <table>
+  <form action="/pdf" method="GET">
+    <table name="table">
         <tr>
           <th>Original Teacher</th>
           <th>Substitute Teacher</th>
@@ -25,7 +26,8 @@
           <td><%= event.className%></td>
           <td><%= event.block%></td>
 
-
+        
+            <td><%= event.date%></td>
 
           <td><%= event.notes%></td>
         </tr>
@@ -35,5 +37,8 @@
         
        
       </table>
+        <button type="submit">Generate PDF</button>
+        </form>
+      <button onclick="location.href='/'">Home</button>
 </body>
 </html>

@@ -53,7 +53,7 @@ export const loadDataPage = async (req, res) => {
 
  
 export const makeSubEvent = async (req, res) => {
-  const { originalTeacherName, subbingTeacherName, classData, notes } = req.body;
+  const { originalTeacherName, subbingTeacherName, classData, notes,date } = req.body;
   const selectedBlocks = req.body.blocks || {};
 
   try {
@@ -66,7 +66,7 @@ export const makeSubEvent = async (req, res) => {
      
 
              
-        const subEvent = new SubEvent({ originalTeacherName, subbingTeacherName, className, block, notes });
+        const subEvent = new SubEvent({ originalTeacherName, subbingTeacherName, className, block, notes, date });
         await subEvent.save();  
         console.log(subEvent)
         // if (subbingTeacherName === "Not Provided") {
