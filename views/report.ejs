@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Substitution Schedule</title>
 </head>
 <body>
-  <form action="/pdf" method="GET">
-    <table name="table">
+    <table id="table">
+      <thead>
         <tr>
           <th>Original Teacher</th>
           <th>Substitute Teacher</th>
@@ -16,29 +16,51 @@
           <th>Date</th>
           <th>Notes</th>
         </tr>
-      
-        <% subEvents.forEach(event => { 
-              console.log(event.originalTeacherName, event.subbingTeacherName);
-            %>
-            <tr>
-          <td><%= event.originalTeacherName%></td>
-          <td><%= event.subbingTeacherName%></td>
-          <td><%= event.className%></td>
-          <td><%= event.block%></td>
+      </thead>
+      <tbody>
+        <% subEvents.forEach(event => { %>
+          <tr>
+            <td><%= event.originalTeacherName %></td>
+            <td><%= event.subbingTeacherName %></td>
+            <td><%= event.className %></td>
+            <td><%= event.block %></td>
+            <td><%= event.date %></td>
+            <td><%= event.notes %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
 
-        
-            <td><%= event.date%></td>
+    <!-- Button to generate PDF -->
+    <button id="generatePdfBtn">Generate PDF</button>
 
-          <td><%= event.notes%></td>
-        </tr>
-       <% }) %>
+    <!-- Home button -->
+    <button onclick="location.href='/'">Home</button>
 
-      
-        
-       
-      </table>
-        <button type="submit">Generate PDF</button>
-        </form>
-      <button onclick="location.href='/'">Home</button>
+    <script>
+      document.getElementById("generatePdfBtn").addEventListener("click", async () => {
+        const tableHTML = document.getElementById("table").outerHTML;
+
+        const response = await fetch("/pdf", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ table: tableHTML })
+        });
+
+        if (response.ok) {
+          const blob = await response.blob();
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = "substitution_schedule.pdf";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } else {
+          console.error("Error generating PDF");
+        }
+      });
+    </script>
 </body>
 </html>
