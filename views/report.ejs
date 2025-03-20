@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet"  href="report.css">
 </head>
 <body>
   <form action="/pdf" method="GET">
@@ -37,8 +38,10 @@
         
        
       </table>
-        <button type="submit">Generate PDF</button>
-        </form>
-      <button onclick="location.href='/'">Home</button>
+      <div class="buttondiv">
+        <button id="pdfbtn" type="submit">Generate PDF</button>
+        <button id="homebtn" onclick="location.href='/'">Home</button>
+      </div>
+    </form>
 </body>
 </html>
