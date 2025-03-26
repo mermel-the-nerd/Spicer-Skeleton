@@ -26,6 +26,7 @@ th {
 }
 
 button {
+    margin: 5px;
     padding: 16px;
     background-color: #8DBC66;
     color: #313131;
@@ -36,3 +37,5 @@ button {
 button:hover {
     background-color: #6A9951;
 }
+
+/* add more button css :)

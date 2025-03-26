@@ -31,12 +31,13 @@
         <% }) %>
       </tbody>
     </table>
+    <div class="buttondiv">
+      <!-- Button to generate PDF -->
+      <button id="generatePdfBtn">Generate PDF</button>
 
-    <!-- Button to generate PDF -->
-    <button id="generatePdfBtn">Generate PDF</button>
-
-    <!-- Home button -->
-    <button onclick="location.href='/'">Home</button>
+      <!-- Home button -->
+      <button onclick="location.href='/'">Home</button>
+    </div>
 
     <script>
       document.getElementById("generatePdfBtn").addEventListener("click", async () => {
